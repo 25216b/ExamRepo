@@ -7,14 +7,7 @@ services:
       POSTGRES_PASSWORD: hello
       POSTGRES_DB: mydb
     volumes:
-      - db_data:/var/lib/postgresql/data
-  adminer:
-    image: adminer
-    restart: unless-stopped
-    environment:
-      ADMINER_DEFAULT_SERVER: db
-    ports:
-      - '8080:8080'
+      - /var/lib/postgresql/data
   app:
     depends_on:
       - db
@@ -49,7 +42,4 @@ services:
     environment:
       DATABASE_URL: postgres://root:hello@db:5432/mydb
     volumes:
-      - node_modules:/app/node_modules
-volumes:
-  db_data:
-  node_modules:
+      - /app/node_modules
