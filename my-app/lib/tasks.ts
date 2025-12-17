@@ -34,5 +34,6 @@ export async function editTask(form: FormData) {
 
 export async function removeTask(id: string) {
   await db.delete(tasksTable).where(eq(tasksTable.id, id))
+    revalidatePath('/') 
   redirect((await headers()).get('referer') ?? '/')
 }
