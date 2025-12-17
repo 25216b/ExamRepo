@@ -3,7 +3,7 @@ import { type ReactNode } from 'react'
 
 //import { createTask, getTasks } from './Tickets'
 
-import { getTasks, addTask } from '../../lib/tasks'
+import { getTasks, addTask, removeTask } from '../../lib/tasks'
 
 
 export default async function Contacts() {
@@ -16,7 +16,7 @@ export default async function Contacts() {
                 <label>
                     New task: <input name="title" />
                 </label>
-                <button 
+                <button
                     className="absolute top-4 right-4 bg-[#667eea] text-white w-8 h-8 rounded-full
                    flex items-center justify-center text-xl font-bold
                    hover:bg-[#5566d4] transition cursor-pointer"
@@ -28,12 +28,14 @@ export default async function Contacts() {
                 {tasks.map((task) => (
                     <li key={task.id} className="flex items-center justify-between py-2 px-3 hover:bg-gray-50 rounded">
                         <span>{task.title}</span>
-                        <button 
-                            className="text-red-500 hover:text-red-700 text-xl transition"
-                            title="Supprimer"
-                        >
-                            🗑️
-                        </button>
+                        <form action={removeTask.bind(null, task.id)}>
+                            <button
+                                className="text-red-500 hover:text-red-700 text-xl transition"
+                                title="Supprimer"
+                            >
+                                🗑️
+                            </button>
+                        </form>
                     </li>
                 ))}
             </ul>
