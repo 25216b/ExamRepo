@@ -5,3 +5,9 @@ export const tasksTable = pgTable('tasks', {
   title: text().notNull(),
   done: boolean().default(false).notNull(),
 })
+
+export const postTable = pgTable('tasks', {
+  id: uuid().defaultRandom().primaryKey(),
+  postTitle: text().notNull(),
+  postContent: text().notNull()
+})
