@@ -3,6 +3,7 @@
 import { db } from '@/db'
 import { tasksTable } from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
@@ -15,6 +16,8 @@ export async function addTask(form: FormData) {
     title: String(form.get('title')),
     done: false,
   })
+  revalidatePath('/') 
+
   redirect((await headers()).get('referer') ?? '/')
 }
 
