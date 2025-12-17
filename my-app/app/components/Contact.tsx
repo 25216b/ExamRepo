@@ -24,9 +24,17 @@ export default async function Contacts() {
                     +
                 </button>
             </form>
-            <ul>
+            <ul className="mt-4">
                 {tasks.map((task) => (
-                    <li key={task.id}>{task.title}</li>
+                    <li key={task.id} className="flex items-center justify-between py-2 px-3 hover:bg-gray-50 rounded">
+                        <span>{task.title}</span>
+                        <button 
+                            className="text-red-500 hover:text-red-700 text-xl transition"
+                            title="Supprimer"
+                        >
+                            🗑️
+                        </button>
+                    </li>
                 ))}
             </ul>
 
