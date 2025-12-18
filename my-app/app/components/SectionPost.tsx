@@ -13,16 +13,7 @@ export default async function SectionPost() {
                     <h2 className="text-2xl font-bold mb-4">{post.postTitle}</h2>
                     <p className="text-gray-700 whitespace-pre-wrap">{post.postContent}</p>
                     
-                    <div className="absolute top-4 right-4 flex gap-2">
-                        {/* Edit Button */}
-                        <button 
-                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition"
-                            title="Edit"
-                        >
-                            ✏️
-                        </button>
-                        
-                        {/* Delete Button */}
+                    <div className="absolute top-4 right-4">
                         <form action={removePost.bind(null, post.id)}>
                             <button 
                                 className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition"
