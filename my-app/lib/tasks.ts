@@ -37,3 +37,15 @@ export async function removeTask(id: string) {
     revalidatePath('/') 
   redirect((await headers()).get('referer') ?? '/')
 }
+
+
+
+export async function addPost(form: FormData) {
+  await db.insert(postTable).values({
+    postTitle: String(form.get('title')),
+    postContent: String(form.get('content')),
+  })
+  revalidatePath('/') 
+
+  redirect((await headers()).get('referer') ?? '/')
+}
