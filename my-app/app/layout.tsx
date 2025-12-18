@@ -6,6 +6,7 @@ import HeaderTitle from "./components/HeaderTitle";
 import SectionId from "./components/SectionId";
 import Footer from "./components/Footer";
 import CVEntry from "./components/CvEntry";
+import SectionPost from "./components/SectionPost";
 import Contacts from "./components/Contact";
 
 const geistSans = Geist({
@@ -37,21 +38,7 @@ export default function RootLayout({
         <HeaderTitle></HeaderTitle>
         <Navbar></Navbar>
         <SectionId></SectionId>
-        <CVEntry
-        sectionName="Education"
-          title="industrial computer science"
-          company="HE2B-ESI"
-          date="202444444444445">
-            Graduated with an Engineering Diploma after completing extensive coursework and practical projects that strengthened my abilities in design, analysis, teamwork, and the application of engineering principles in real scenarios.
-          </CVEntry>
-          <CVEntry
-          sectionName="Experience"
-          title="environemental enginner intern"
-          company="PC2A -Lille,France"
-          date="2025">
-            internship as an engineer in a national project where i had to develop ui and simple code for researcher and find solution on how to detectenvironement change
-            The challenge was that ai was prohibated so algorithmic and physics solution were the way to go
-          </CVEntry>
+        <SectionPost></SectionPost>
           <Contacts>
 
           </Contacts>
