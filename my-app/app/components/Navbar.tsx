@@ -104,7 +104,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="sticky top-0 w-full py-4 px-4 z-50 bg-gray-900">
+        <nav className="sticky top-0 w-full py-4 px-4 z-50 ">
             <div className="max-w-2xl mx-auto bg-black rounded-full px-6 py-3 relative shadow-lg">
                 <ul className="list-none flex justify-around items-center">
                     <NavLink href="#top">🏠</NavLink>
