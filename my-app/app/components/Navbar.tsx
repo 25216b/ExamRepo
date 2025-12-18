@@ -143,10 +143,7 @@ export default function Navbar() {
                 {showAddBooking && (
                     <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 w-80 bg-gray-800 rounded-lg p-4 shadow-xl">
                         <form action={handleSubmit} className="flex flex-col gap-3">
-                                nameB: String(form.get('name')),
-    nbPerson:String(form.get('nbPerson')),
-    phoneNumber:String(form.get('phoneNumber')),
-    dateBooking:String(form.get('dateBooking'))
+                              
                             <input 
                                 type="text" 
                                 name="name"

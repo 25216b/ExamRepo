@@ -16,6 +16,10 @@ export async function getPost() {
   return await db.select().from(postTable)
 }
 
+export async function getBookings() {
+  return await db.select().from(bookingTable)
+}
+
 export async function addTask(form: FormData) {
   await db.insert(tasksTable).values({
     title: String(form.get('title')),
@@ -83,6 +87,21 @@ export async function addBooking(form: FormData) {
 
   redirect((await headers()).get('referer') ?? '/')
 }
+
+export async function editBooking(form: FormData) {
+  await db
+    .update(bookingTable)
+    .set({
+      nameB: String(form.get('name')),
+      nbPerson: String(form.get('nbPerson')),
+      phoneNumber:String(form.get('phoneNumber')),
+      dateBooking:String(form.get('dateBooking'))
+    })
+    .where(eq(bookingTable.id, String(form.get('id'))))
+  revalidatePath('/')
+  redirect((await headers()).get('referer') ?? '/')
+}
+
 /*
 name: text().notNull(),
   nbPerson: integer().notNull(),
