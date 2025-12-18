@@ -39,7 +39,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         <SectionId></SectionId>
         
-         
+        <SectionPost></SectionPost>
           
         {children}
         <Footer></Footer>
