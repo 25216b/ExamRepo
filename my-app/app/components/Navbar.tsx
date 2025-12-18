@@ -143,27 +143,39 @@ export default function Navbar() {
                 {showAddBooking && (
                     <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 w-80 bg-gray-800 rounded-lg p-4 shadow-xl">
                         <form action={handleSubmit} className="flex flex-col gap-3">
+                                nameB: String(form.get('name')),
+    nbPerson:String(form.get('nbPerson')),
+    phoneNumber:String(form.get('phoneNumber')),
+    dateBooking:String(form.get('dateBooking'))
                             <input 
                                 type="text" 
-                                name="title"
-                                placeholder="Title..."
+                                name="name"
+                                placeholder="name of booker"
                                 className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
-                                required
-                            />
-                            <textarea 
-                                name="content"
-                                placeholder="Content..."
-                                rows={4}
-                                className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none resize-none"
                                 required
                             />
                             <input 
-                                type="test" 
-                                name="title"
-                                placeholder="Testing..."
+                                type="text" 
+                                name="nbPerson"
+                                placeholder="number of person"
                                 className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
                                 required
                             />
+                             <input 
+                                type="text" 
+                                name="phoneNumber"
+                                placeholder="phone number"
+                                className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
+                                required
+                            />
+                             <input 
+                                type="text" 
+                                name="dateBooking"
+                                placeholder="date of the booking"
+                                className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
+                                required
+                            />
+                            
                             <button 
                                 type="submit"
                                 className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-2"
