@@ -1,4 +1,4 @@
-import { getPost, removePost } from '../../lib/tasks'
+import { getPost, editPost, removePost } from '../../lib/tasks'
 
 export default async function SectionPost() {
     const posts = await getPost()
@@ -10,19 +10,35 @@ export default async function SectionPost() {
                     key={post.id} 
                     className="relative max-w-[1000px] mx-auto p-[20px] my-[40px] bg-white rounded-[8px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
                 >
-                    <h2 className="text-2xl font-bold mb-4">{post.postTitle}</h2>
-                    <p className="text-gray-700 whitespace-pre-wrap">{post.postContent}</p>
-                    
-                    <div className="absolute top-4 right-4">
-                        <form action={removePost.bind(null, post.id)}>
-                            <button 
-                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition"
-                                title="Delete"
-                            >
-                                🗑️
+                    <form action={editPost}>
+                        <input type="hidden" name="id" value={post.id} />
+                        
+                        <input 
+                            name="title" 
+                            defaultValue={post.postTitle} 
+                            className="w-full text-2xl font-bold mb-4 border px-2 py-1 rounded"
+                        />
+                        
+                        <textarea 
+                            name="content" 
+                            defaultValue={post.postContent} 
+                            rows={8} 
+                            className="w-full border px-2 py-1 mb-4 rounded"
+                        />
+                        
+                        <div className="flex gap-2">
+                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                                💾 Save
                             </button>
-                        </form>
-                    </div>
+                            
+                            <button 
+                                formAction={removePost.bind(null, post.id)}
+                                className="bg-red-500 text-white px-4 py-2 rounded"
+                            >
+                                🗑️ Delete
+                            </button>
+                        </div>
+                    </form>
                 </section>
             ))}
         </>

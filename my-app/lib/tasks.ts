@@ -58,3 +58,15 @@ export async function addPost(form: FormData) {
 
   redirect((await headers()).get('referer') ?? '/')
 }
+
+export async function editPost(form: FormData) {
+  await db
+    .update(postTable)
+    .set({
+      postTitle: String(form.get('title')),
+      postContent: String(form.get('content')),
+    })
+    .where(eq(postTable.id, String(form.get('id'))))
+  revalidatePath('/')
+  redirect((await headers()).get('referer') ?? '/')
+}
