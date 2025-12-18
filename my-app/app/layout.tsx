@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import CVEntry from "./components/CvEntry";
 import SectionPost from "./components/SectionPost";
 import Contacts from "./components/Contact";
+import SectionPostWrapper from "./components/SectionWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         <SectionId></SectionId>
         
-        <SectionPost></SectionPost>
+        <SectionPostWrapper></SectionPostWrapper>
           
         {children}
         <Footer></Footer>
