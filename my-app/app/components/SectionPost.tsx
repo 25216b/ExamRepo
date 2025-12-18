@@ -73,7 +73,7 @@ type Booking = {
                                     <input type="hidden" name="id" value={booking.id} />
                                     <input 
                                         type="text" 
-                                        name="title"
+                                        name="name"
                                         defaultValue={booking.nameB}
                                         placeholder="Title..."
                                         className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
@@ -81,7 +81,7 @@ type Booking = {
                                     />
                                     <input 
                                         type="text" 
-                                        name="title"
+                                        name="nbPerson"
                                         defaultValue={booking.nbPerson}
                                         placeholder="Title..."
                                         className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
@@ -89,7 +89,7 @@ type Booking = {
                                     />
                                     <input 
                                         type="text" 
-                                        name="title"
+                                        name="phoneNumber"
                                         defaultValue={booking.phoneNumber}
                                         placeholder="Title..."
                                         className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
@@ -97,7 +97,7 @@ type Booking = {
                                     />
                                     <input 
                                         type="text" 
-                                        name="title"
+                                        name="dateBooking"
                                         defaultValue={booking.dateBooking}
                                         placeholder="Title..."
                                         className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
