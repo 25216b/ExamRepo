@@ -110,10 +110,10 @@ export default function Navbar() {
                     <NavLink href="#top">🏠</NavLink>
                     
                     <NavLink onClick={() => setShowSearch(!showSearch)}>
-                        ➕
+                        🔍
                     </NavLink>
                     
-                    <NavLink href="#search">🔍</NavLink>
+                    <NavLink href="#search">➕</NavLink>
                 </ul>
 
                 {/* Search dropdown */}
