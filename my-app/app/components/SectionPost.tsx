@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { removePost, editPost ,editBooking} from '../../lib/tasks'
+import { removePost, editPost ,editBooking, removeBooking} from '../../lib/tasks'
 
 
 type Post = {
@@ -55,7 +55,7 @@ type Booking = {
                             ✏️
                         </button>
                         
-                        <form action={removePost.bind(null, booking.id)}>
+                        <form action={removeBooking.bind(null, booking.id)}>
                             <button 
                                 className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition"
                                 title="Delete"

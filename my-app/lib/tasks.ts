@@ -54,6 +54,13 @@ export async function removePost(id: string) {
   redirect((await headers()).get('referer') ?? '/')
 }
 
+export async function removeBooking(id: string) {
+  await db.delete(bookingTable).where(eq(bookingTable.id, id))
+    revalidatePath('/') 
+  redirect((await headers()).get('referer') ?? '/')
+}
+
+
 export async function addPost(form: FormData) {
   await db.insert(postTable).values({
     postTitle: String(form.get('title')),
