@@ -26,18 +26,15 @@ export default async function SectionPost() {
                             className="w-full border px-2 py-1 mb-4 rounded"
                         />
                         
-                        <div className="flex gap-2">
-                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-                                💾 Save
-                            </button>
-                            
-                            <button 
-                                formAction={removePost.bind(null, post.id)}
-                                className="bg-red-500 text-white px-4 py-2 rounded"
-                            >
-                                🗑️ Delete
-                            </button>
-                        </div>
+                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded mr-2">
+                            💾 Save
+                        </button>
+                    </form>
+                    
+                    <form action={removePost.bind(null, post.id)} className="inline">
+                        <button className="bg-red-500 text-white px-4 py-2 rounded">
+                            🗑️ Delete
+                        </button>
                     </form>
                 </section>
             ))}
