@@ -1,16 +1,39 @@
-export default function SectionId(){
+import { getPost, removePost } from '../../lib/tasks'
 
+export default async function SectionPost() {
+    const posts = await getPost()
+    
     return (
-    <section className="max-w-[1000px] mx-auto p-[20px] my-[40px] p-[30px] bg-white rounded-[8px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
-            <h2>About Me</h2>
-            <div className="flex items-center gap-[30px] flex-wrap">
-                <div className="w-[200px] h-[200px] rounded-full bg-[#667eea] flex items-center justify-center text-white text-[4rem] flex-shrink-0">JD</div>
-                <div className="flex-1 min-w-[250px]">
-                    <p>Hello! I'm a passionate web developer who loves creating beautiful websites. I enjoy learning new
-                        technologies and solving problems with code.</p>
-                    <p>When I'm not coding, I like reading, playing games, and drinking coffee.</p>
-                </div>
-            </div>
-        </section>
+        <>
+            {posts.map((post) => (
+                <section 
+                    key={post.id} 
+                    className="relative max-w-[1000px] mx-auto p-[20px] my-[40px] bg-white rounded-[8px] shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
+                >
+                    <h2 className="text-2xl font-bold mb-4">{post.postTitle}</h2>
+                    <p className="text-gray-700 whitespace-pre-wrap">{post.postContent}</p>
+                    
+                    <div className="absolute top-4 right-4 flex gap-2">
+                        {/* Edit Button */}
+                        <button 
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition"
+                            title="Edit"
+                        >
+                            ✏️
+                        </button>
+                        
+                        {/* Delete Button */}
+                        <form action={removePost.bind(null, post.id)}>
+                            <button 
+                                className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition"
+                                title="Delete"
+                            >
+                                🗑️
+                            </button>
+                        </form>
+                    </div>
+                </section>
+            ))}
+        </>
     )
 }

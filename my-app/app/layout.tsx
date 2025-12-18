@@ -39,9 +39,7 @@ export default function RootLayout({
         <Navbar></Navbar>
         <SectionId></SectionId>
         <SectionPost></SectionPost>
-          <Contacts>
-
-          </Contacts>
+         
           
         {children}
         <Footer></Footer>

@@ -43,6 +43,11 @@ export async function removeTask(id: string) {
 }
 
 
+export async function removePost(id: string) {
+  await db.delete(postTable).where(eq(postTable.id, id))
+    revalidatePath('/') 
+  redirect((await headers()).get('referer') ?? '/')
+}
 
 export async function addPost(form: FormData) {
   await db.insert(postTable).values({
