@@ -1,7 +1,7 @@
 'use server'
 
 import { db } from '@/db'
-import { tasksTable } from '@/db/schema'
+import { tasksTable ,postTable} from '@/db/schema'
 import { eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
@@ -9,6 +9,10 @@ import { redirect } from 'next/navigation'
 
 export async function getTasks() {
   return await db.select().from(tasksTable)
+}
+
+export async function getPost() {
+  return await db.select().from(postTable)
 }
 
 export async function addTask(form: FormData) {
