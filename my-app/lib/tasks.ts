@@ -1,8 +1,9 @@
 'use server'
 
 import { db } from '@/db'
-import { tasksTable ,postTable} from '@/db/schema'
+import { tasksTable ,postTable,bookingTable} from '@/db/schema'
 import { eq } from 'drizzle-orm'
+import { integer } from 'drizzle-orm/gel-core'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
@@ -70,3 +71,20 @@ export async function editPost(form: FormData) {
   revalidatePath('/')
   redirect((await headers()).get('referer') ?? '/')
 }
+
+export async function addBooking(form: FormData) {
+  await db.insert(bookingTable).values({
+    nameB: String(form.get('name')),
+    nbPerson:String(form.get('nbPerson')),
+    phoneNumber:String(form.get('phoneNumber')),
+    dateBooking:String(form.get('dateBooking'))
+  })
+  revalidatePath('/') 
+
+  redirect((await headers()).get('referer') ?? '/')
+}
+/*
+name: text().notNull(),
+  nbPerson: integer().notNull(),
+  phoneNumber:text().notNull(),
+  dateBooking: text().notNull()*/

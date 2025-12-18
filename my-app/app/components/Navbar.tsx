@@ -68,7 +68,7 @@ export default function Navbar() {
 
 import Link from "next/link";
 import { type ReactNode, useState } from "react";
-import { addPost } from "@/lib/tasks";
+import { addPost,addBooking } from "@/lib/tasks";
 
 type NavLinkProps = {
     href?: string;
@@ -94,7 +94,8 @@ function NavLink(props: NavLinkProps) {
 
 export default function Navbar() {
     const [showSearch, setShowSearch] = useState(false);
-    const [showAddPost, setShowAddPost] = useState(false);
+    /*const [showAddPost, setShowAddPost] = useState(false);*/
+     const [showAddBooking, setShowAddBooking] = useState(false);
     const [searchText, setSearchText] = useState('');
 
     const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -104,8 +105,8 @@ export default function Navbar() {
     };
 
     const handleSubmit = async (formData: FormData) => {
-        await addPost(formData);
-        setShowAddPost(false);
+        await addBooking(formData);
+        setShowAddBooking(false);
     };
 
     return (
@@ -118,7 +119,7 @@ export default function Navbar() {
                         🔍
                     </NavLink>
                     
-                    <NavLink onClick={() => setShowAddPost(!showAddPost)}>
+                    <NavLink onClick={() => setShowAddBooking(!showAddBooking)}>
                         ➕
                     </NavLink>
                 </ul>
@@ -139,7 +140,7 @@ export default function Navbar() {
                 )}
 
                 {/* Add Post Form */}
-                {showAddPost && (
+                {showAddBooking && (
                     <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 w-80 bg-gray-800 rounded-lg p-4 shadow-xl">
                         <form action={handleSubmit} className="flex flex-col gap-3">
                             <input 
@@ -156,11 +157,18 @@ export default function Navbar() {
                                 className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none resize-none"
                                 required
                             />
+                            <input 
+                                type="test" 
+                                name="title"
+                                placeholder="Testing..."
+                                className="w-full bg-gray-700 text-white rounded-lg px-4 py-2 outline-none"
+                                required
+                            />
                             <button 
                                 type="submit"
                                 className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg py-2"
                             >
-                                Add Post
+                                Add Booking
                             </button>
                         </form>
                     </div>
